@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProfesores" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="204b024c-a01b-4e31-a61d-e694ab495277">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     usuario.`TipoDocumento` AS usuario_TipoDocumento,
+     usuario.`DNI` AS usuario_DNI,
+     usuario.`Nombre` AS usuario_Nombre,
+     usuario.`Apellido` AS usuario_Apellido,
+     usuario.`Telefono` AS usuario_Telefono,
+     usuario.`Correo` AS usuario_Correo,
+     usuario.`Direccion` AS usuario_Direccion
+FROM
+     `usuario` usuario
+WHERE usuario.Rol = "Profesor"]]>
+	</queryString>
+	<field name="usuario_TipoDocumento" class="java.lang.String"/>
+	<field name="usuario_DNI" class="java.lang.String"/>
+	<field name="usuario_Nombre" class="java.lang.String"/>
+	<field name="usuario_Apellido" class="java.lang.String"/>
+	<field name="usuario_Telefono" class="java.lang.String"/>
+	<field name="usuario_Correo" class="java.lang.String"/>
+	<field name="usuario_Direccion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="121" y="26" width="296" height="43" uuid="26ce45f0-62fc-4267-b5f1-0ebb9e475a32"/>
+				<textElement>
+					<font fontName="Arial" size="20"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PROFESORES]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="465" y="16" width="100" height="20" uuid="aff5ac33-9601-48fa-bff0-90ccd5c0c50e"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="17" y="0" width="104" height="79" uuid="ea83ca6f-8ae6-4e2a-af77-add7a5f55d00"/>
+				<imageExpression><![CDATA["D:\\SENA\\SENA 2 trimestre\\proyecto final sena java\\Proyecto final 2\\login\\src\\Imagenes\\H.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="7" width="571" height="1" uuid="89958f3e-fcc9-478c-a461-fc0a2a2582f6"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="2" width="79" height="20" uuid="a2dbc25c-cd46-4936-a1bc-366d5a40047d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[T Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="2" width="87" height="20" uuid="dd783735-79b4-43bd-9554-96b1c6adc57a"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Dni]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="2" width="100" height="20" uuid="0eea73b9-030b-44d3-ae07-9759ab71039f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="2" width="100" height="20" uuid="37d6b534-77bb-4c70-997d-5e17a740b4e1"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="2" width="100" height="20" uuid="d7bf470c-65d9-42bf-b268-2e6c4cf121ab"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="2" width="100" height="20" uuid="e791fd01-9454-4292-aa56-2ef284d17f76"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="9" y="2" width="79" height="20" uuid="997ba5cb-194f-486f-b71d-b5f2f5eb3373"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_TipoDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="0" width="87" height="20" uuid="9811c64d-1f7a-4874-a094-6b186c5c5d0f"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_DNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="2" width="100" height="20" uuid="ea212c9a-7668-452e-981f-9e9b11530129"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="2" width="100" height="20" uuid="5b7ad0a0-7a0d-462c-aa4e-0396051eca06"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_Apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="2" width="100" height="20" uuid="a2039433-7fff-4a0e-abf3-5d90b2250bed"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_Telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="2" width="100" height="20" uuid="79b848db-30f5-4118-b395-480af983697e"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_Correo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="3" width="572" height="1" uuid="c3e60039-3440-4d14-abd6-d8a00206644c"/>
+			</line>
+			<staticText>
+				<reportElement x="36" y="14" width="474" height="26" forecolor="#CC0000" uuid="9edf4370-dd85-4c9d-b5b4-14b2e8ee5612"/>
+				<textElement>
+					<font fontName="Arial" size="18"/>
+				</textElement>
+				<text><![CDATA[Registro Creado por el Ingeniero Developert Henry Rincon]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

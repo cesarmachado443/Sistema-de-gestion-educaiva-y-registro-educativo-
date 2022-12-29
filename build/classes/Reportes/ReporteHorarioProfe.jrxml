@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteHorarioProfe" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="57f78898-c5f9-4cf2-95eb-a36fbc960dd1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT usuario.Nombre, usuario.Apellido,cursos.codigo
+                        ,cursos.nombre, aula.grado, aula.seccion ,aula.horario,aula.Dia, session.Usuario
+                        FROM usuario
+                        INNER JOIN cursos ON usuario.id = cursos.id_usuario
+                        INNER JOIN aula ON cursos.id = aula.id_curso
+                        INNER JOIN session ON usuario.id = session.id_usuario]]>
+	</queryString>
+	<field name="Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellido" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="seccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Dia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Usuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="258" y="32" width="254" height="23" uuid="e27580c1-ef23-4e71-88a0-79717458fb23"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horario de Clases Professores]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="633" y="12" width="100" height="20" uuid="0b77de35-1684-4ccc-a367-706398bcd152"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="83" y="0" width="133" height="79" uuid="ba6a764d-8e02-49dd-95aa-6f4a04ea038a"/>
+				<imageExpression><![CDATA["D:\\SENA\\SENA 2 trimestre\\proyecto final sena java\\Proyecto final 2\\login\\src\\Imagenes\\H.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="5" width="752" height="1" uuid="c7a4887e-4d86-491f-b38c-73597e360368"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="47" y="0" width="94" height="20" uuid="1d09ec8d-b06f-40ae-bfbf-2d93fe948d29"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="94" height="20" uuid="242ff826-636a-4bb9-9801-adbfb9541c51"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="0" width="94" height="20" uuid="7ddbe6aa-39e7-441f-b9e1-8c0a79bfa48d"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="0" width="66" height="20" uuid="d9c12087-7cc8-490e-a8b5-dc4800f010d8"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[grado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="0" width="94" height="20" uuid="f17ff367-4c58-4abe-9629-60c5f221c3e3"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[seccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="533" y="0" width="79" height="20" uuid="25892dcd-44a1-45f0-866b-9e53cd43c24c"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[horario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="624" y="0" width="94" height="20" uuid="1d30b725-74af-4802-b2ce-8be3101808c6"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<text><![CDATA[Dia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="47" y="0" width="94" height="20" uuid="fe5dce49-4033-4e45-8aaf-e8032bfe7eb6"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="0" width="94" height="20" uuid="5a3942ce-def5-4e36-b205-7f40eae2d56d"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="0" width="94" height="20" uuid="562a12a2-a641-4931-91e1-99fe60495302"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="0" width="94" height="20" uuid="b53069d3-ed5e-40c1-84e7-ab75e128fc02"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="0" width="94" height="20" uuid="7b61f3d8-bdd1-4697-99a7-cd128b84b56a"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="0" width="94" height="20" uuid="cb308566-81b9-4a7e-b5e6-e5b6a3d25204"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="624" y="0" width="94" height="20" uuid="fa0eb7c3-b033-4d78-ac5a-041ecbf6eeac"/>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="171" y="28" width="379" height="22" uuid="26073175-a81d-4a0d-9c1d-323e48fd8951"/>
+				<textElement>
+					<font fontName="Arial" size="16"/>
+				</textElement>
+				<text><![CDATA[Reporte Generado por el Developert Henry Rincon]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="12" width="752" height="1" uuid="a9a87629-5108-4c4c-a4f2-49cf9a2c45e7"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
